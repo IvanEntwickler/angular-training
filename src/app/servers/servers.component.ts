@@ -9,6 +9,9 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   createServerStatus = 'No server was created!';
   serverName = '';
+  serverStatus = false;
+  userName = '';
+  createUser = 'No User: ';
 
   constructor() {
     setTimeout(() => {
@@ -19,11 +22,22 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
   onCreateServer() {
-    this.createServerStatus = 'Server was created';
+    this.serverStatus = true;
+    this.createServerStatus = 'Server was created the Servername is ' + this.serverName;
   }
 
-  onUpdateServerName(event: Event){
-    this.serverName = (<HTMLInputElement>event.target).value;
+  onUpdateServerName(event: Event) {
+    // tslint:disable-next-line:no-angle-bracket-type-assertion
+    this.serverName = (<HTMLInputElement> event.target).value;
+  }
+
+  onCreateUserState() {
+    if (this.userName.length !== 0) {
+     return this.createUser = 'User: ' + this.userName;
+    }
+  }
+  onResetUser(){
+    this.userName = '';
   }
 
 }

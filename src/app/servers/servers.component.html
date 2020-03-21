@@ -1,8 +1,15 @@
 <label for="">Server Name</label>
-<input
+
+<!-- <input
 type="text"
 class='form-control'
 (input)='onUpdateServerName($event)'
+> -->
+
+<input
+type="text"
+class='form-control'
+[(ngModel)]='serverName'
 >
 <p>{{serverName}}</p>
 <button
@@ -12,7 +19,24 @@ class='btn btn-primary'
 >
 Add Server
 </button>
-<p >{{createServerStatus}}</p>
+<!-- <p >{{createServerStatus}}</p> -->
+<p *ngIf="serverStatus">Server was created, server Name is {{ serverName }}</p>
 <app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
+
+
+<!-- <input
+type="text"
+class='form-control'
+[(ngModel)]='userName'
+>
+<p>{{userName}}</p>
+<button
+class='btn btn-primary'
+(click)='onCreateUserState()'
+(click)='onResetUser()'
+
+>
+Set User
+</button>
+<p>{{createUser}}</p> -->
+
