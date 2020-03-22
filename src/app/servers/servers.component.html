@@ -21,7 +21,15 @@ Add Server
 </button>
 <!-- <p >{{createServerStatus}}</p> -->
 <p *ngIf="serverStatus">Server was created, server Name is {{ serverName }}</p>
-<app-server></app-server>
+<app-server *ngFor='let server of servers'></app-server>
+
+<button class="btn btn-primary" (click)='onSetPassword()'>Display Details</button>
+<p *ngIf="passwordIsFalse; else secretPassword">JS-Ninja</p>
+<ng-template #secretPassword>
+  <p>What is your Password?</p>
+</ng-template>
+<p [ngStyle]='{backgroundColor: onColorChange()}' [ngClass]="{color: onColorChange}" *ngFor='let password of clickList'>{{password}}</p>
+
 
 
 <!-- <input
